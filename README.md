@@ -74,7 +74,8 @@
 |
 ├── 📂 programmers
 	├── 🗂️ 1002
-		├── 📕 Suhwa_1001.py
+		├── 📕 Suhwa_1002.py
+		├── 📕 Yeji_1002.py
 ```
 
 <br>
