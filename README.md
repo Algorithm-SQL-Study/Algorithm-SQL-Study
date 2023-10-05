@@ -1,4 +1,5 @@
 # Algorithm-SQL-Study
+[스터디 노션](https://www.notion.so/s-2383d0b5a3e54964a069539d3ffccd83?pvs=21)
 
 <br>
 
