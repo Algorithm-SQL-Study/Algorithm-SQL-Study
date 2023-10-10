@@ -7,7 +7,7 @@ class Solution {
         String[] answer = new String[n];
         int[] arr3 = new int[n];
 
-        // arr3에 비트 곱의 결과를 저장
+        // arr3에 비트 합의 결과를 저장
         for(int i = 0;i<n;i++){
             arr3[i]=arr1[i]|arr2[i];
         }
