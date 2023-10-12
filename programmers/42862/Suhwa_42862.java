@@ -14,14 +14,6 @@ class Solution {
                 .collect(Collectors.toList());
 
 
-        //1. 여별 체육복가진 사람= 도난당한사람 인지 확인
-        for(Integer i=1;i<=n;i++){
-            if(lostList.contains(i) && reserveList.contains(i)){
-                reserveList.remove(Integer.valueOf(i));
-                lostList.remove(Integer.valueOf(i));
-            }
-        }
-
 
         for(Integer i=0;i<n;i++){ //첫번째 틀린이유 : index시작을 0 으로 둬서....
             if(lostList.contains(i)&&reserveList.contains(i)){
@@ -29,7 +21,7 @@ class Solution {
                 // 반례 : n=8, lost=[4,5], reserve=[5,6]
                 reserveList.remove(Integer.valueOf(i));
                 lostList.remove(Integer.valueOf(i));
-                answer
+                answer++;
             }
             else if(lostList.contains(i)){
 
@@ -78,7 +70,7 @@ class Solution {
         }
 
 
-        for(Integer i=1;i<=n;i++){ //아 미친 1부터 시작인걸 까먹고 0으로 했다가 계속 오류났네 미친
+        for(Integer i=1;i<=n;i++){ //아 미친 1부터 시작인걸 까먹고 0으로 했다가 계속 오류났네
             if(lostList.contains(i)){
 
                 if(reserveList.contains(i-1)){
