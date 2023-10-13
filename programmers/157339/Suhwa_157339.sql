@@ -15,7 +15,7 @@
 
 #SELCT MAX(cola) ~~ GROUP BY col : cola의 데이터중 가장 큰것( MAX(cola)), goup by를 사용하면 기준 칼럼에 의해 그룹핑됨으로, 각 그룹별 데이터중 가장큰 cola 출력
 
-
+# DATEDIFF(DATE1, DATE2) : DATE1에서 DATE2까지 일수 차이. DATE1이 미래일때 +, 더 과거이면 - 값
 
 
 # 나의 코드
