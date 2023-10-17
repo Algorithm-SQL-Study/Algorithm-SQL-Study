@@ -35,3 +35,24 @@ class Solution {
         return bi;
     }
 }
+////////////////////////// Integer.toBinaryString을 이용한 풀이
+import java.util.Arrays;
+
+class Solution {
+
+    public String[] solution(int n, int[] arr1, int[] arr2) {
+        String[] answer = new String[n];
+
+        for (int i = 0; i < n; i++) {
+            String line = Integer.toBinaryString(arr1[i] | arr2[i]) // 비트합 연산
+                    .replace("1", "#").replace("0", " ");           // 1->#, 0->공백
+            for (int j = line.length(); j < n; j++) {
+                line = " " + line;  // 길이가 부족하면 앞에 공백 추가
+            }
+
+            answer[i] = line;
+        }
+
+        return answer;
+    }
+}
