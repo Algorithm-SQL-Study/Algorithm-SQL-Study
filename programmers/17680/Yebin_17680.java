@@ -1,4 +1,4 @@
-import java.util.Deque;
+import java.util.Queue;
 import java.util.LinkedList;
 
 class Solution {
@@ -8,7 +8,7 @@ class Solution {
         }
 
         int second = 0;
-        Deque<String> cache = new LinkedList<>();
+        Queue<String> cache = new LinkedList<>();
 
         for (String city : cities) {
             city = city.toLowerCase();
