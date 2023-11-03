@@ -13,13 +13,13 @@ class Solution
             char c = s.charAt(i);
             if (stack.isEmpty()) {
                 stack.add(c);
-            } else {
-                if (c == stack.getLast()) {
-                    stack.removeLast();
-                } else {
-                    stack.add(c);
-                }
+                continue;
             }
+            if (c == stack.getLast()) {
+                stack.removeLast();
+                continue;
+            }
+            stack.add(c);
         }
 
         return stack.isEmpty()? 1: 0;
