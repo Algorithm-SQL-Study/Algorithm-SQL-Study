@@ -47,12 +47,13 @@ class Solution {
     private void giveCredit(String person, int money
             , Map<String, String> pyramid
             , Map<String, Integer> profit) {
+        if (money == 0) return; // <- 이게 없으면 tc 11,12,13 시간초과
+
         String higher = pyramid.get(person);
         int credit = credit10percent(money);
         profit.put(person, profit.get(person) + money - credit);
 
         if (higher == null) return;
-        if (money == 0) return; // <- 이게 없으면 tc 11,12,13 시간초과
 
         giveCredit(higher, credit, pyramid, profit);
     }
