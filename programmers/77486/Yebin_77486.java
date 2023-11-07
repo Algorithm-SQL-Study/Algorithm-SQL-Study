@@ -58,9 +58,7 @@ class Solution {
     }
 
     private int credit10percent(int money) {
-        int credit = money / 10;
-        if (credit < 1) return 0;
-        return credit;
+        return money / 10;
     }
 
     private int[] printProfit(String[] enroll
