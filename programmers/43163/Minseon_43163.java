@@ -1,3 +1,9 @@
+/**
+ * == 43163. 단어 변환 ==
+ * 입력 : 단어 begin, target, 단어 집합 words
+ * 출력 : begin에서 target으로 변환하는 변환 과정의 최소 횟수
+ */
+
 import java.util.*;
 
 class Solution {
