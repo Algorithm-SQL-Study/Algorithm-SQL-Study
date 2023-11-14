@@ -1,3 +1,9 @@
+/**
+ * == 17677. 뉴스 클러스터링 ==
+ * 입력: 두 문자열 str1, str2
+ * 출력: 두 문자열의 자카드 유사도
+ */
+
 import java.util.*;
 
 class Solution {
