@@ -9,10 +9,9 @@ class Solution {
     public int solution(String[][] book_time) {
         int room = 0;
 
-        // 1. 예약을 시간(시작 시간, 종료 시간)순으로 정렬
+        // 1. 예약을 시작 시간순으로 정렬
         Comparator<String[]> timeComparator = Comparator
-                .comparing((String[] time) -> time[0])
-                .thenComparing((String[] time) -> time[1]);
+                .comparing((String[] time) -> time[0]);
         Arrays.sort(book_time, timeComparator);
 
         // 2. 제일 빨리 비는 방을 얻기 위해 우선순위큐를 쓴다
