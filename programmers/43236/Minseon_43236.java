@@ -1,3 +1,9 @@
+/**
+ * == 43236. 징검다리 ==
+ * 입력 : 도착점까지의 거리 distance, 바위들의 위치 배열 rocks, 제거할 바위의 수 n
+ * 출력 : 바위를 n개 제거한 뒤 각 지점 사이의 거리의 최솟값 중에 가장 큰 값
+ */
+
 import java.util.*;
 import java.util.stream.Collectors;
 
