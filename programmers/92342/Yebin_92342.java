@@ -21,7 +21,7 @@ class Solution {
             if (ryan == null) return;
             // 업데이트 
             int diff = getDiff(ryan, apeach);
-            if (diff == 0 || diff < maxDiff) return;
+            if (diff <= 0 || diff < maxDiff) return;
             if (diff == maxDiff && !betterAnswer(ryan, answer)) return;
             maxDiff = diff;
             answer = ryan.clone();
