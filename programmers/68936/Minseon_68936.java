@@ -18,25 +18,17 @@ class Solution {
             if (arr[0][0] == 0) zeros++;
             else ones++;
             return;
-        } else if (n == 2) {    // 최소 넓이의 사각형인 경우(2*2)
-            for (int i = 0; i < n; i++) {
-                for (int j = 0; j < n; j++) {
-                    if (arr[i][j] == 0) zeros++;
-                    else ones++;
-                }
-            }
-            return;
-        } else {                // 사각형 쪼개기
-            for (int i = 0; i < n; i += n/2) {
-                for (int j = 0; j < n; j += n/2) {      // (i, j) : 시작 인덱스
-                    int[][] square = new int[n/2][n/2];
-                    for (int x = 0; x < n/2; x++) {
-                        for (int y = 0; y < n/2; y++) {
-                            square[x][y] = arr[i + x][j + y];
-                        }
+        } 
+        /* 사각형으로 쪼개기 */
+        for (int i = 0; i < n; i += n/2) {
+            for (int j = 0; j < n; j += n/2) {      // (i, j) : 시작 인덱스
+                int[][] square = new int[n/2][n/2];
+                for (int x = 0; x < n/2; x++) {
+                    for (int y = 0; y < n/2; y++) {
+                        square[x][y] = arr[i + x][j + y];
                     }
-                    compressSquare(square);
                 }
+                compressSquare(square);
             }
         }
     }
