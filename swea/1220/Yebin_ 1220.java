@@ -1,10 +1,5 @@
-import java.util.ArrayList;
-import java.util.Deque;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Scanner;
 
-//테스트용
 //7
 //        1 0 2 0 1 0 1
 //        0 2 0 0 0 0 0
@@ -25,54 +20,27 @@ class Solution {
         for (int t = 1; t <= 10; t++) {
             int n = sc.nextInt();
 
-            List<Deque<Integer>> magnetic = new ArrayList<>();
-            for (int i = 0; i < n; i++) {
-                magnetic.add(new LinkedList<>());
-            }
-
+            int[][] magnetic = new int[n][n];
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < n; j++) {
-                    int temp = sc.nextInt();
-                    if (temp == 0) {
-                        continue;
-                    }
-                    magnetic.get(j).offer(temp);
+                    magnetic[i][j] = sc.nextInt();
                 }
             }
 
             int count = 0;
-            for (int i = 0; i < n; i++) {
-                Deque<Integer> row = magnetic.get(i);// N<-->S
-                boolean drop = true;
-                while (drop) {
-                    drop = false;
-                    if (row.isEmpty()) {
-                        break;
-                    }
-                    if (row.peekFirst() == BLUE) {
-                        row.pollFirst();
-                        drop = true;
-                    }
-                    if (row.isEmpty()) {
-                        break;
-                    }
-                    if (row.peekLast() == RED) {
-                        row.pollLast();
-                        drop = true;
-                    }
-                }
-
-                // ===== 사실 위에 떨어뜨리는 거 안하고 이것만 해도 결과는 같음. 어차피 1과 2를 매칭하는 거라서.
+            for (int c = 0; c < n; c++) {
                 boolean red = false;
-                for (Integer integer : row) {
-                    if (integer == RED) {
+                for (int r = 0; r < n; r++) {
+                    if (magnetic[r][c] == 0) {
+                        continue;
+                    }
+                    if (magnetic[r][c] == RED) {
                         red = true;
                     } else if (red) {
                         count++;
                         red = false;
                     }
                 }
-                // =========================================================================
             }
 
             sb.append("#").append(t).append(" ").append(count).append("\n");
