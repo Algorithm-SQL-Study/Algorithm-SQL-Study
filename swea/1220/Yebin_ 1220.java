@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Scanner;
 
+//테스트용
 //7
 //        1 0 2 0 1 0 1
 //        0 2 0 0 0 0 0
@@ -41,8 +42,8 @@ class Solution {
 
             int count = 0;
             for (int i = 0; i < n; i++) {
-                boolean drop = true;
                 Deque<Integer> row = magnetic.get(i);// N<-->S
+                boolean drop = true;
                 while (drop) {
                     drop = false;
                     if (row.isEmpty()) {
@@ -61,6 +62,7 @@ class Solution {
                     }
                 }
 
+                // ===== 사실 위에 떨어뜨리는 거 안하고 이것만 해도 결과는 같음. 어차피 1과 2를 매칭하는 거라서.
                 boolean red = false;
                 for (Integer integer : row) {
                     if (integer == RED) {
@@ -70,6 +72,7 @@ class Solution {
                         red = false;
                     }
                 }
+                // =========================================================================
             }
 
             sb.append("#").append(t).append(" ").append(count).append("\n");
