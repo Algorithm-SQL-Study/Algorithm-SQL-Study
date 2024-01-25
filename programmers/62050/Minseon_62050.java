@@ -21,14 +21,13 @@ class Solution {
         addLand(0, 0, height);     // (0,0)에서 갈 수 있는 칸
         visited[0][0] = true;
         while(!heapq.isEmpty()) {
-            Land now = heapq.poll();    // start -> end, 비용
-            int[] start = now.start; int[] end = now.end;
-            if (visited[end[0]][end[1]]) continue;  // 이미 방문한 곳이면 continue
+            Land now = heapq.poll();
+            if (visited[now.x][now.y]) continue; // 이미 방문한 곳이면 continue
 
             /* 비용 계산 및 이동 */
             totalCost += now.cost;
-            visited[end[0]][end[1]] = true;
-            addLand(end[0], end[1], height);
+            visited[now.x][now.y] = true;
+            addLand(now.x, now.y, height);
         }
 
         return totalCost;
@@ -44,24 +43,21 @@ class Solution {
             int y = j + dy[d];
             if (x >= 0 && x < n && y >= 0 && y < n && !visited[x][y]) {
                 int diff = Math.abs(landList[x][y] - landList[i][j]);
-                int[] s = {i, j};   // start
-                int[] e = {x, y};   // end
-
-                if (diff <= height) heapq.add(new Land(s, e, 0));
-                else heapq.add(new Land(s, e, diff));   // 사다리 설치
+                if (diff <= height) heapq.add(new Land(x, y, 0));
+                else heapq.add(new Land(x, y, diff));   // 사다리 설치
             }
         }
     }
 }
 
 class Land {
-    int[] start;    // 출발 지점
-    int[] end;      // 도착 지점
-    int cost;       // 비용
+    int x;
+    int y;
+    int cost;
 
-    public Land(int[] start, int[] end, int cost) {
-        this.start = start;
-        this.end = end;
+    public Land(int x, int y, int cost) {
+        this.x = x;
+        this.y = y;
         this.cost = cost;
     }
 }
