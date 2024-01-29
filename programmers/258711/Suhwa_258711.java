@@ -50,7 +50,11 @@ class Solution {
 
 
         //2. 생성노드 구하기
-        answer[0] = findGenerateNode(graph);
+        int[] result1 = findGenerateNode(graph);
+        answer[0] = result1[0];
+
+        //3. 생성노드 제거
+        removeGenerateNode(result1[0],graph);
 
         //3. 생성노드 제외한 그래프 bfs로 탐색
         int[] result = bfsGraph(answer[0], graph);
@@ -64,13 +68,33 @@ class Solution {
 
     public int findGenerateNode(Map<Integer, List<List<Integer>>> graph){
         // 하나의 정점 나오는 endList는 존재하나 다른 정점에서 해당 정점으로 오는 startList는 없음
+        int[] result= new int[2]; //[하나의 정점, 총 그래프개수]
         for(int key : graph.keySet()) {
             List<List<Integer>> value = graph.get(key);
             if(value.get(0).size()==0){
-                return key;
+                result[0]=key;
+                result[1]=value.get(1).size();
+                break;
             }
         }
-        return -9;
+        return result;
+    }
+
+
+    public void removeGenerateNode(int generatedNode,List<List<Integer>>> graph){
+        for(int key : graph.keySet()) {
+            if(key==generatedNode){
+                graph.remove(generatedNode);
+            }
+            List<List<Integer>> value = graph.get(key);
+            if(List<Integer> nodeList : value){
+                if(nodeList.contains(generatedNode)){
+                    int index = nodeList.indexOf(generatedNode);
+                    nodeList.remove(generatedNode);
+                }
+            }
+        }
+
     }
 
 
