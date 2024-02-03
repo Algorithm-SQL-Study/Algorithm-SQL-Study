@@ -9,7 +9,7 @@ class Solution {
 
         // 삼각형 만들기
         while (n > 0) {
-            // 아래로 n-1번 이동
+            // 아래로 n번 이동
             for (int i = 0; i < n; i++) {
                 triangle[x++][y] = value++;
             }
@@ -23,7 +23,7 @@ class Solution {
             x--;
             y -= 2;
 
-            // 대각선 위로 n-1번 이동
+            // 대각선 위로 n-2번 이동
             for (int i = 0; i < n - 2; i++) {
                 triangle[x--][y--] = value++;
             }
