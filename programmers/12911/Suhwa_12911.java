@@ -86,8 +86,7 @@ class Solution {
         int answer = n;
 
         String nbinary = Integer.toBinaryString(n); // 10진수 -> 2진수
-        //int numOf1 = getNumOf1(nbinary);
-        int numOf1 = nbinary.length() - nbinary.replace("1","").length();
+        int numOf1 = getNumOf1(nbinary);
 
         int numOf11 =0;
         while(numOf1!=numOf11){
@@ -102,7 +101,7 @@ class Solution {
     public int getNumOf1(String binary){
         int result = 0;
         for(int i =0 ;i<binary.length() ; i++){
-            result+=Integer.valueOf(binary.charAt(i))-48;
+            result+=binary.charAt(i)-48;
         }
         return result;
     }
